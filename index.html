@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agi_Plast.KS</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo1.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar" id="home-section">
+        <div class="logo">
+            <img src="assets/images/logo1.png" alt="Logo" class="logo-img">
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav class="menu" >
+            <ul class="menu-links">
+                <li><a href="#home-section" onclick="navigateToSection('home-section')">Home</a></li>
+                <li><a href="#service-section" onclick="navigateToSection('service-section')" >Service</a></li>
+                <li><a href="#products-section" onclick="navigateToSection('products-section')" >Products</a></li>
+                <li><a href="#contact-section" onclick="navigateToSection('contact-section')" >Contact</a></li>
+            </ul>
+            <div class="follow-section" id="home-section">
+                <span>Follow Us:</span>
+                <a href="https://www.instagram.com/agi_plast" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/p/NTP-Agi-Plast-100054279530541/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/+38344282786" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="language-switcher">
+                <span id="changeLanguage">Language</span>
+                <div class="language-dropdown">
+                    <a href="#" onclick="changeLanguage('en')">English</a>
+                    <a href="#" onclick="changeLanguage('sq')">Shqip</a>
+                    <a href="#" onclick="changeLanguage('de')">Deutsch</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section class="background-section">
+        <h3 id="home-title" >AGI PLAST company offers safety and quality in its products as a company with 19 years of experience.</h3>
+        <h6 id="home-subtitle">Discover the latest items and videos</h6>
+        <div class="buttons">
+            <a href="assets/images/Katalogu 1.pdf" target="_blank" class="button" id="button:first-of-type">View Catalog</a>
+            <a href="#" class="button" id="button:last-of-type">Watch Video"</a>
+        </div>
+    </section>
+
+    <!-- Service Section -->
+    <section class="service-section" id="service-section">
+        <div class="service-item">
+            <i class="fa-solid fa-hammer"></i>
+            <h4 id="install-title">INSTALLATION</h4>
+            <p id="indtall-text">We offer different installations at any time and place according to your request.</p>
+        </div>
+        <div class="service-item">
+            <i class="fa-solid fa-truck"></i>
+            <h4 id="delivery-title">DELIVERY</h4>
+            <p id="delivery-text">Fast and reliable delivery to any location you need.</p>
+        </div>
+        <div class="service-item">
+            <i class="fa-brands fa-windows"></i>
+            <h4 id="materials-title">MATERIALS</h4>
+            <p id="materials-text">We work with the highest quality German materials.</p>
+        </div>
+        <div class="service-item">
+            <i class="fa-solid fa-money-check-dollar"></i>
+            <h4 id="payment-title">PAYMENT</h4>
+            <p  id="payment-text">We offer different payments with bank loans or loans in our firm.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products-section">
+        <div class="product-item">
+            <img src="assets/images/der shtyse.png" alt="Product 1">
+            <h4 id="product-h4">Product 1</h4>
+            <p id="product-p">Discover our first amazing product with fantastic features.</p>
+        </div>
+        <div class="product-item">
+            <img src="assets/images/der.png" alt="Product 2">
+            <h4 id="product-h4">Product 2</h4>
+            <p id="product-p2">Top-notch quality and performance.</p>
+        </div>
+        <div class="product-item">
+            <img src="assets/images/deregjamit.png" alt="Product 3">
+            <h4 id="product-h4">Product 3</h4>
+            <p id="product-p3">Efficiency and durability in one product.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact-section">
+        <h id="contact-title">Contact Us</h2>
+        <p id="contact-description">If you have any questions or need assistance, you can contact us via WhatsApp:</p>
+        <div class="icons">
+            <a href="https://wa.me/38344282786" target="_blank" class="phone-number">
+                <i class="fa-solid fa-phone"></i> +383 44282768
+            </a>
+            <a href="https://wa.me/38348282786" target="_blank" class="phone-number">
+                <i class="fa-solid fa-phone"></i> +383 48282768
+            </a>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section">
+        <h2 id="location-title">Our Location</h2>
+        <p id="location-description">You can find us at the following address:</p>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 id="aboutus">About Us</h4>
+                <p id="ABoutus-p">We are a company dedicated to providing the best services and products to our customers.</p>
+            </div>
+            <div class="footer-section">
+                <h4 id="h4">Quick Links</h4>
+                <ul>
+                    <li><a href="#home-section" id="home-section">Home</a></li>
+                    <li><a href="#service-section" id="service-section">Services</a></li>
+                    <li><a href="#products-section" id="products-section">Products</a></li>
+                    <li><a href="#contact-section" id="contact-section">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 id="Follow-us">Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/p/NTP-Agi-Plast-100054279530541/" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/agi_plast" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/38344282786" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p id="footer">&copy; 2025 AGI Plast. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
