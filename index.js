@@ -105,7 +105,7 @@ function changeLanguage(language) {
           "payment-title": "PAGESA",
           "payment-text": "Ne ofrojmë pagesa të ndryshme me kredi bankare ose kredi në firmën tonë.",
           "garancioni-title": "Guarantee",
-          "garancioni-text": "Ne japim garancion deri ne 5 ne produktet tona.",
+          "garancioni-text": "Ne japim garancion deri ne 5  vite ne produktet tona.",
           "product-h4":  "Produkti 1",
           "product-p": "Zbuloni produktin tonë të parë të mahnitshëm me karakteristika fantastike.",
           "product-h4": "Produkti 2",
