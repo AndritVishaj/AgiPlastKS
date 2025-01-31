@@ -40,13 +40,23 @@
     </header>
 
     <!-- Home Section -->
+    <section>
    <h3 id="home-title" >AGI PLAST company offers safety and quality in its products as a company with 24 years of experience.</h3>
         <h6 id="home-subtitle">Discover the latest items and videos</h6>
         <div class="buttons">
             <a href="assets/images/Katalogu 1.pdf" target="_blank" class="button" id="button:first-of-type">View Catalog</a>
             <a  href="#" class="button" id="button:last-of-type">Watch Video</a>
         </div>
+        <div id="videoModal">
+        <video id="videoPlayer" controls>
+            <source src="IMG_5079.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="close-btn" onclick="closeVideo()">Close</button>
+    </div>
+    
     </section>
+   
 
     <!-- Service Section -->
     <section class="service-section" id="service-section">
@@ -166,6 +176,18 @@
         </div>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="index.js">
+
+        document.getElementById("button:last-of-type").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("videoModal").style.display = "block";
+        document.getElementById("videoPlayer").play(); // Auto-play when opened
+    });
+
+    function closeVideo() {
+        document.getElementById("videoModal").style.display = "none";
+        document.getElementById("videoPlayer").pause(); // Pause the video
+    }
+    </script>
 </body>
 </html>
