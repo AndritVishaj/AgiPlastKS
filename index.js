@@ -62,7 +62,7 @@ function changeLanguage(language) {
 function changeLanguage(language) {
   const translations = {
       en: {
-          "home-title": "AGI PLAST company offers safety and quality in its products as a company with 19 years of experience.",
+          "home-title": "AGI PLAST company offers safety and quality in its products as a company with 24 years of experience.",
           "home-subtitle": "Discover the latest items and videos",
           "button:first-of-type": "View Catalog",
           "button:last-of-type": "Watch Video",
@@ -92,7 +92,7 @@ function changeLanguage(language) {
           "footer": "&copy; 2025 AGI Plast. All rights reserved",
       },
       sq: {
-          "home-title": "Kompania AGI PLAST ofron siguri dhe cilësi në produktet e saj si një kompani me 19 vjet përvojë.",
+          "home-title": "Kompania AGI PLAST ofron siguri dhe cilësi në produktet e saj si një kompani me 24 vjet përvojë.",
           "home-subtitle": "Zbulo produktet dhe videot më të fundit",
           "button:first-of-type": "Shiko Katalogun",
           "button:last-of-type": "Shiko Video",
@@ -107,12 +107,12 @@ function changeLanguage(language) {
           "garancioni-title": "Guarantee",
           "garancioni-text": "Ne japim garancion deri ne 5 vite ne produktet tona.",
           "product-h4":  "Produkti 1",
-          "product-p": "Zbuloni produktin tonë të parë të mahnitshëm me karakteristika fantastike.",
+          "product-p": "Zbuloni produktin tonë të parë të mahnitshëm me karakteristika fantastike.   rrëshqitje e zgjuar",
           "product-h4": "Produkti 2",
-          "product-p2": "Cilësi dhe performancë e nivelit të lartë.",
+          "product-p2": "Cilësi dhe performancë e nivelit të lartë.   derë standarde",
           "product-h4": "Produkti 3",
           "product-p3": "Efikasitet dhe qëndrueshmëri në një produkt.",
-          "payment-text": "Ne ofrojmë mundësi të ndryshme pagese me kredi bankare ose hua në kompaninë tonë.",
+          "payment-text": "Ne ofrojmë mundësi të ndryshme pagese me kredi bankare ose hua në kompaninë tonë.   dritare standarde",
           "contact-title": "Na kontaktoni",
           "contact-description": "Nëse keni pyetje ose keni nevojë për asistencë, mund të na kontaktoni përmes WhatsApp:",
           "location-title": "Vendndodhja jonë",
@@ -124,7 +124,7 @@ function changeLanguage(language) {
 
       },
       de: {
-        "home-title": "Die Firma AGI PLAST bietet Sicherheit und Qualität in ihren Produkten als Unternehmen mit 19 Jahren Erfahrung.",
+        "home-title": "Die Firma AGI PLAST bietet Sicherheit und Qualität in ihren Produkten als Unternehmen mit 24 Jahren Erfahrung.",
         "home-subtitle": "Entdecken Sie die neuesten Artikel und Videos",
         "button:first-of-type": "Katalog anzeigen",
         "button:last-of-type": "Video ansehen",
@@ -139,11 +139,11 @@ function changeLanguage(language) {
         "garancioni-title": "Garantie",
         "garancioni-text": "Auf unsere Produkte gewähren wir eine Garantie von bis zu 5 Jahren.",
         "product-h4": "Produkt 1",
-        "product-p": "Entdecken Sie unser erstes erstaunliches Produkt mit fantastischen Funktionen.",
+        "product-p": "Entdecken Sie unser erstes erstaunliches Produkt mit fantastischen Funktionen.    intelligente Folie",
         "product-h4": "Produkt 2",
-        "product-p2": "Erstklassige Qualität und Leistung.",
+        "product-p2": "Erstklassige Qualität und Leistung      Standardtür",
         "product-h4": "Produkt 3",
-        "product-h4": "Effizienz und Haltbarkeit in einem Produkt.",
+        "product-h4": "Effizienz und Haltbarkeit in einem Produkt   Standardfenster",
         "contact-title": "Kontakt",
         "contact-description": "Wenn Sie Fragen haben oder Hilfe benötigen, können Sie uns über WhatsApp kontaktieren:",
         "location-title": "Unser Standort",
