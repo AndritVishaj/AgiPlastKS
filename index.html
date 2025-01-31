@@ -47,14 +47,6 @@
             <a href="assets/images/Katalogu 1.pdf" target="_blank" class="button" id="button:first-of-type">View Catalog</a>
             <a  href="#" class="button" id="button:last-of-type">Watch Video</a>
         </div>
-        <div id="videoModal">
-        <video id="videoPlayer" controls>
-            <source src="IMG_5079.MP4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <button class="close-btn" onclick="closeVideo()">Close</button>
-    </div>
-    
     </section>
    
 
@@ -176,18 +168,6 @@
         </div>
     </footer>
 
-    <script src="index.js">
-
-        document.getElementById("button:last-of-type").addEventListener("click", function(event) {
-        event.preventDefault();
-        document.getElementById("videoModal").style.display = "block";
-        document.getElementById("videoPlayer").play(); // Auto-play when opened
-    });
-
-    function closeVideo() {
-        document.getElementById("videoModal").style.display = "none";
-        document.getElementById("videoPlayer").pause(); // Pause the video
-    }
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
