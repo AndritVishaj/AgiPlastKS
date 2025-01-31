@@ -175,3 +175,8 @@ const languageButton = document.getElementById('changeLanguage');
 if (languageButton) {
   languageButton.addEventListener('click', toggleDropdown);
 }
+
+document.getElementById("button:last-of-type").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent default action
+    window.open("assets/images/IMG_5079.mp4", "_blank"); // Open video in a new tab
+});
