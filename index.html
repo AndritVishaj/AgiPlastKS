@@ -44,16 +44,9 @@
         <h6 id="home-subtitle">Discover the latest items and videos</h6>
         <div class="buttons">
             <a href="assets/images/Katalogu 1.pdf" target="_blank" class="button" id="button:first-of-type">View Catalog</a>
-            <a  href="#" class="button" id="button:last-of-type" id="videoButton">
+            <a  href="#" class="button" id="button:last-of-type">
                 Watch Video
             </a>
-            <div id="videoModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:10px;">
-               <video id="videoPlayer" width="400" controls>
-                <source src="assets/images/IMG_5079.MP4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-             <button onclick="closeVideo()">Close</button>
-          </div>
         </div>
     </section>
 
@@ -175,16 +168,6 @@
         </div>
     </footer>
 
-    <script src="index.js">
-         document.getElementById("videoButton").addEventListener("click", function(event) {
-         event.preventDefault(); // Prevent default action
-         document.getElementById("videoModal").style.display = "block"; // Show modal
-   });
-
-    function closeVideo() {
-            document.getElementById("videoModal").style.display = "none"; // Hide modal
-     }
-
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
