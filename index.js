@@ -176,4 +176,9 @@ if (languageButton) {
   languageButton.addEventListener('click', toggleDropdown);
 }
 
-
+ function openVideo() {
+        document.getElementById("videoModal").style.display = "block";
+    }
+    function closeVideo() {
+        document.getElementById("videoModal").style.display = "none";
+    }
