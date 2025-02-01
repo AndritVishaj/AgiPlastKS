@@ -45,7 +45,10 @@
         <h6 id="home-subtitle">Discover the latest items and videos</h6>
         <div class="buttons">
             <a href="assets/images/Katalogu 1.pdf" target="_blank" class="button" id="button:first-of-type">View Catalog</a>
-            <a src="agiplast.mp4"  class="button" id="button:last-of-type"  target="_blank" type="video/mp4">Watch Video</a>
+            <a   class="button" id="button:last-of-type"  target="_blank" onclick="document.getElementById('myVideo').style.display='block'">Watch Video</a>
+            <video id="myVideo" width="640" height="360" controls style="display:none;">
+              <source src="agiplast.mp4" type="video/mp4">
+           </video>
         </div> 
     </section>
    
