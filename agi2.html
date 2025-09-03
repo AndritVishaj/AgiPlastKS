@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agi Plast KS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo1.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+        }
+
+        /* Navbar Styling - Updated to Black */
+        .navbar {
+            background-color: #000;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 65px;
+            height: 65px;
+            border-radius: 35%;
+            background: #f1c40f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .company-name {
+            color: #fff;
+            font-weight: 700;
+            margin-left: 10px;
+            font-size: 1.3rem;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-links {
+            display: flex;
+            list-style: none;
+            margin-right: 30px;
+        }
+
+        .menu-links li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .menu-links li a:hover {
+            color: #f1c40f;
+        }
+
+        .nav-extras {
+            display: flex;
+            align-items: center;
+        }
+
+        .follow-section {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            color: #fff;
+        }
+
+        .follow-section span {
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        .follow-section a {
+            color: #fff;
+            margin: 0 5px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .follow-section a:hover {
+            color: #f1c40f;
+        }
+
+        .language-switcher {
+            position: relative;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .language-switcher span {
+            padding: 8px 15px;
+            display: inline-block;
+            background: #333;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 120px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            top: 100%;
+            right: 0;
+        }
+
+        .language-dropdown a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .language-dropdown a:hover {
+            background-color: #f8f8f8;
+        }
+
+        .language-switcher:hover .language-dropdown {
+            display: block;
+        }
+
+        .menu-icon {
+            display: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section with Window Background */
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('IMG_6315.JPG.png') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-content h2 {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .button i {
+            margin-right: 10px;
+        }
+
+        .btn-primary {
+            background-color: #f1c40f;
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            background-color: #f39c12;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #fff;
+            color: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 30px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #f1c40f;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Service Section */
+        .service-section {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .service-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #f1c40f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .service-icon i {
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        .service-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .service-item p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 80px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-item {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .product-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            transition: transform 0.5s;
+        }
+
+        .product-item:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product-item:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .product-detail-btn {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .product-detail-btn:hover {
+            background: #fff;
+            color: #333;
+        }
+
+        .product-item > h4 {
+            font-size: 1.2rem;
+            padding: 15px 15px 10px;
+            color: #333;
+        }
+
+        .product-item > p {
+            padding: 0 15px;
+            color: #666;
+            margin-bottom: 15px;
+            min-height: 70px;
+            font-size: 0.95rem;
+        }
+
+        .product-brand {
+            padding: 0 15px 15px;
+            color: #e74c3c;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-item i {
+            font-size: 1.3rem;
+            color: #f1c40f;
+            margin-top: 5px;
+        }
+
+        .contact-item h4 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .contact-item p, .contact-item a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .phone-number {
+            display: block;
+            margin-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        .phone-number:hover {
+            color: #f1c40f;
+        }
+
+        .contact-form {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form h3 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.3rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .contact-form button {
+            background: #f1c40f;
+            color: #333;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .contact-form button:hover {
+            background: #f39c12;
+        }
+
+        /* Location Section */
+        .location-section {
+            padding: 80px 20px;
+            background: #f9f9f9;
+        }
+
+        .location-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .location-info h3 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.3rem;
+        }
+
+        .location-info p {
+            margin-bottom: 15px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .location-info i {
+            margin-right: 10px;
+            color: #f1c40f;
+        }
+
+        .direction-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #f1c40f;
+            color: #333;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .direction-btn:hover {
+            background: #f39c12;
+        }
+
+        .map-container {
+            height: 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            color: #fff;
+            padding: 60px 0 0;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-section .logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-section p {
+            margin-bottom: 20px;
+            color: #bbb;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #f1c40f;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-section ul li a:hover {
+            color: #f1c40f;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #f1c40f;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .location-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .location-info {
+                order: 2;
+            }
+            
+            .map-container {
+                order: 1;
+                height: 300px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: #000;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: left 0.3s;
+            }
+            
+            .menu.active {
+                left: 0;
+            }
+            
+            .menu-links {
+                flex-direction: column;
+                align-items: center;
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .nav-extras {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .menu-icon {
+                display: block;
+            }
+            
+            .follow-section {
+                margin-right: 0;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-section {
+                height: 80vh;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .buttons {
+                flex-direction: column;
+            }
+            
+            .button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                padding: 0 15px;
+            }
+            
+            .company-name {
+                font-size: 1.1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+            
+            .product-item > h4 {
+                font-size: 1.1rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-section h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Product Detail Modal */
+        .product-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+            padding: 20px;
+        }
+
+        .product-modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+            animation: modalFade 0.3s;
+        }
+
+        @keyframes modalFade {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .product-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        .product-modal-close:hover {
+            color: #000;
+        }
+
+        .product-modal-body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .product-modal-image {
+            flex: 1;
+            min-width: 300px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product-modal-image img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        .product-modal-details {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-modal-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .product-modal-brand {
+            color: #e74c3c;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .product-modal-description {
+            margin-bottom: 25px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .product-modal-features {
+            margin-bottom: 25px;
+        }
+
+        .product-modal-features h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .product-modal-features ul {
+            list-style-type: none;
+        }
+
+        .product-modal-features li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .product-modal-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .product-modal-specs {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .product-modal-specs h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .product-modal-specs p {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .product-modal-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .product-modal-btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .product-modal-btn i {
+            margin-right: 10px;
+        }
+
+        .btn-inquire {
+            background-color: #f1c40f;
+            color: #333;
+        }
+
+        .btn-inquire:hover {
+            background-color: #f39c12;
+        }
+
+        .btn-catalog {
+            background-color: transparent;
+            color: #333;
+            border: 2px solid #333;
+        }
+
+        .btn-catalog:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .product-modal-body {
+                flex-direction: column;
+            }
+            
+            .product-modal-content {
+                margin: 10% auto;
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar" id="home-section">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="IMG_6317.PNG" alt="Agi Plast Logo" class="logo-img">
+                <span class="company-name">AGI PLAST</span>
+            </div>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <nav class="menu">
+                <ul class="menu-links">
+                    <li><a href="#home-section" onclick="navigateToSection('home-section')">Kryefaqja</a></li>
+                    <li><a href="#service-section" onclick="navigateToSection('service-section')">Shërbimet</a></li>
+                    <li><a href="#products-section" onclick="navigateToSection('products-section')">Produktet</a></li>
+                    <li><a href="#contact-section" onclick="navigateToSection('contact-section')">Kontakt</a></li>
+                </ul>
+                <div class="nav-extras">
+                    <div class="follow-section">
+                        <span>Na ndiqni:</span>
+                        <a href="https://www.instagram.com/agi_plast" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/p/NTP-Agi-Plast-100054279530541/" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/+38344282786" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <div class="language-switcher">
+                        <span id="changeLanguage">Gjuha</span>
+                        <div class="language-dropdown">
+                            <a href="#" onclick="changeLanguage('sq')">Shqip</a>
+                            <a href="#" onclick="changeLanguage('en')">English</a>
+                            <a href="#" onclick="changeLanguage('de')">Deutsch</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 id="home-title">Zgjidhje Premium për Dritare dhe Xham</h1>
+            <h2 id="home-subtitle">24 Vjet Ekselencë në Cilësi dhe Siguri - Ofruam produkte me cilësi të lartë gjermane me instalim profesional</h2>
+            <div class="buttons">
+                <a href="Katalogu 1.pdf" target="_blank" class="button btn-primary" id="button:first-of-type">
+                    <i class="fas fa-book-open"></i> Shiko Katalogun
+                </a>
+                <a href="0130(1).mp4" class="button btn-secondary" target="_blank">
+                    <i class="fas fa-play-circle"></i> Shiko Videon
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Section -->
+    <section class="service-section" id="service-section">
+        <div class="section-header">
+            <h2 id="services-title">Shërbimet Tona</h2>
+            <p id="services-subtitle">Zgjidhje të plota për të gjitha nevojat tuaja për dritare dhe xham</p>
+        </div>
+        <div class="services-container">
+            <div class="service-item">
+                <div class="service-icon">
+                    <i class="fa-solid fa-hammer"></i>
+                </div>
+                <h4 id="install-title">Instalim Profesional</h4>
+                <p id="install-text">Ofrojmë instalime të precizuara në çdo kohë dhe vend sipas kërkesave tuaja specifike.</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <h4 id="delivery-title">Dërgesë e Shpejtë</h4>
+                <p id="delivery-text">Dërgesë e shpejtë dhe e besueshme në çdo vendndodhje me trajtim të kujdesshëm.</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+                <h4 id="materials-title">Materiale Premium</h4>
+                <p id="materials-text">Punojmë ekskluzivisht me materiale të cilësisë më të lartë gjermane për qëndrueshmëri.</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">
+                    <i class="fa-solid fa-credit-card"></i>
+                </div>
+                <h4 id="payment-title">Pagesë Fleksibile</h4>
+                <p id="payment-text">Ofrojmë opsione të ndryshme pagese, duke përfshirë financimin bankar ose planpagesa.</p>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">
+                    <i class="fa-solid fa-medal"></i>
+                </div>
+                <h4 id="guarantee-title">Garancia 5-Vjeçare</h4>
+                <p id="guarantee-text">Ofrojmë deri në 5 vjet garanci për produktet tona për rehatinë tuaj.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products-section">
+        <div class="section-header">
+            <h2 id="products-title">Produktet Tona</h2>
+            <p id="products-subtitle">Dritare dhe dyert me cilësi të lartë për ambientet moderne</p>
+        </div>
+        <div class="products-container">
+            <div class="product-item" onclick="openProductModal('product1')">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/300x200?text=Dera+RR%C3%ABshqit%C3%ABse" alt="Dera Rrëshqitëse">
+                    <div class="product-overlay">
+                        <span class="product-detail-btn">Shiko Detajet</span>
+                    </div>
+                </div>
+                <h4 id="product1-title">Dera Rrëshqitëse</h4>
+                <p id="product1-text">Zbuloni derën tonë premium rrëshqitëse me karakteristika inovative dhe dizajn elegant.</p>
+                <div class="product-brand">AluPlast</div>
+            </div>
+            <div class="product-item" onclick="openProductModal('product2')">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/300x200?text=Dera+Hyr%C3%ABse" alt="Dera Hyrëse">
+                    <div class="product-overlay">
+                        <span class="product-detail-btn">Shiko Detajet</span>
+                    </div>
+                </div>
+                <h4 id="product2-title">Dera Hyrëse</h4>
+                <p id="product2-text">Cilësi dhe siguri të shkëlqyera me veti të shkëlqyera termoizoluese.</p>
+                <div class="product-brand">AluPlast</div>
+            </div>
+            <div class="product-item" onclick="openProductModal('product3')">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/300x200?text=Dritare+Premium" alt="Dritare Premium">
+                    <div class="product-overlay">
+                        <span class="product-detail-btn">Shiko Detajet</span>
+                    </div>
+                </div>
+                <h4 id="product3-title">Dritare Premium</h4>
+                <p id="product3-text">Dritare me efikasitet të lartë energjetik që kombinojnë qëndrueshmërinë me estetikën.</p>
+                <div class="product-brand">AluPlast</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact-section">
+        <div class="section-header">
+            <h2 id="contact-title">Na Kontaktoni</h2>
+            <p id="contact-description">Lidhuni me ne për një konsultim falas dhe kuotë</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Telefoni</h4>
+                        <a href="https://wa.me/38344282786" target="_blank" class="phone-number">+383 44 282 768</a>
+                        <a href="https://wa.me/38348282786" target="_blank" class="phone-number">+383 48 282 768</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>info@agiplast-ks.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Orari i Punës</h4>
+                        <p>E Hënë - E Premte: 8:00 - 17:00</p>
+                        <p>E Shtunë: 9:00 - 14:00</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Adresa</h4>
+                        <p>Pranë Marketit Buburrec, Drenas, Klinë</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Dërgo mesazh</h3>
+                <form>
+                    <input type="text" placeholder="Emri i plotë" required>
+                    <input type="email" placeholder="Email adresa" required>
+                    <input type="tel" placeholder="Telefoni">
+                    <textarea placeholder="Mesazhi juaj" rows="5" required></textarea>
+                    <button type="submit">Dërgo Mesazhin</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section">
+        <div class="section-header">
+            <h2 id="location-title">Vendndodhja Jonë</h2>
+            <p id="location-description">Vizitoni showroom-in tonë për të parë produktet tona personalisht</p>
+        </div>
+        <div class="location-container">
+            <div class="location-info">
+                <h3>Adresa e Showroom-it</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Pranë Marketit Buburrec, Drenas, Klinë</p>
+                <p><i class="fas fa-directions"></i> Qasje e lehtë me parkim të mjaftueshëm</p>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d427.3044600122844!2d20.58787238528616!3d42.6053230389277!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e1!3m2!1ssq!2sus!4v1738260321233!5m2!1ssq!2sus" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="logo">
+                      <img src="IMG_6317.PNG" alt="Agi Plast Logo" class="logo-img">
+                    <span class="company-name">AGI PLAST</span>
+                </div>
+                <p id="aboutus-text">Me 24 vjet përvojë, ne ofrojmë zgjidhje premium për dritare dhe xham me materiale të cilësisë gjermane dhe shërbime instalimi profesionale.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/p/NTP-Agi-Plast-100054279530541/" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/agi_plast" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/38344282786" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Lidhje të Shpejta</h4>
+                <ul>
+                    <li><a href="#home-section">Kryefaqja</a></li>
+                    <li><a href="#service-section">Shërbimet</a></li>
+                    <li><a href="#products-section">Produktet</a></li>
+                    <li><a href="#contact-section">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Produktet</h4>
+                <ul>
+                    <li><a href="#">Dritare</a></li>
+                    <li><a href="#">Dyer</a></li>
+                    <li><a href="#">Sistemet Rrëshqitëse</a></li>
+                    <li><a href="#">Ndarëse me Xham</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Informacione Kontakti</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Drenas, Klinë</p>
+                <p><i class="fas fa-phone"></i> +383 44 282 768</p>
+                <p><i class="fas fa-envelope"></i> info@agiplast-ks.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p id="footer-text">&copy; 2025 AGI Plast. Të gjitha të drejtat e rezervuara.</p>
+        </div>
+    </footer>
+
+    <!-- Product Detail Modals -->
+    <div id="product1-modal" class="product-modal">
+        <div class="product-modal-content">
+            <span class="product-modal-close" onclick="closeProductModal('product1')">&times;</span>
+            <div class="product-modal-body">
+                <div class="product-modal-image">
+                    <img src="der shtyse.png" alt="Dera Rrëshqitëse">
+                </div>
+                <div class="product-modal-details">
+                    <h2 class="product-modal-title">Dera Rrëshqitëse</h2>
+                    <div class="product-modal-brand">AluPlast</div>
+                    <p class="product-modal-description">
+                        Dera jonë premium rrëshqitëse kombinon teknologjinë inovative me dizajnin elegant.
+                        E përsosur për shtëpitë moderne, ofron operim të pandërprerë, izolim të shkëlqyer dhe veçori të përmirësuara sigurie.
+                    </p>
+                    <div class="product-modal-features">
+                        <h4>Karakteristikat Kryesore:</h4>
+                        <ul>
+                            <li>Teknologjia e thyerjes termike për efikasitet energjetik</li>
+                            <li>Sistem multi-pikësh kyçjeje për siguri të shtuar</li>
+                            <li>Mekanizëm i qetë dhe i qetë rrëshqitës</li>
+                            <li>Opsione xhami të personalizueshme</li>
+                            <li>Kornizë e qëndrueshme alumini me veshje pluhuri</li>
+                            <li>Mirëmbajtje dhe pastrim i lehtë</li>
+                        </ul>
+                    </div>
+                    <div class="product-modal-specs">
+                        <h4>Specifikimet:</h4>
+                        <p><strong>Trashësia: </strong>1.0 mm</p>
+                        <p><strong>Materiali: </strong>Alumini me veshje pluhuri</p>
+                        <p><strong>Lloji i Xhamit: </strong>Xham i dyfishtë izolues</p>
+                        <p><strong>Garancia: </strong>5 vjet</p>
+                    </div>
+                    <div class="product-modal-actions">
+                        <a href="#contact-section" class="product-modal-btn btn-inquire" onclick="closeProductModal('product1')">
+                            <i class="fas fa-info-circle"></i> Kërko Informacion
+                        </a>
+                        <a href="Katalogu 1.pdf" target="_blank" class="product-modal-btn btn-catalog">
+                            <i class="fas fa-book-open"></i> Shiko Katalogun
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="product2-modal" class="product-modal">
+        <div class="product-modal-content">
+            <span class="product-modal-close" onclick="closeProductModal('product2')">&times;</span>
+            <div class="product-modal-body">
+                <div class="product-modal-image">
+                    <img src="der.png" alt="Dera Hyrëse">
+                </div>
+                <div class="product-modal-details">
+                    <h2 class="product-modal-title">Dera Hyrëse</h2>
+                    <div class="product-modal-brand">AluPlast</div>
+                    <p class="product-modal-description">
+                        Dera hyrëse standarde jonë kombinon sigurinë, qëndrueshmërinë dhe atraktivitetin estetik.
+                        Projektuar për t'i rezistuar elementeve ndërsa përmirëson pamjen e shtëpisë suaj.
+                    </p>
+                    <div class="product-modal-features">
+                        <h4>Karakteristikat Kryesore:</h4>
+                        <ul>
+                            <li>Kornizë e përforcuar për siguri maksimale</li>
+                            <li>Ngulitje e përparuar e motit</li>
+                            <li>Opsione xhami të dyfishta ose të trefishta</li>
+                            <li>Opsione të ndryshme dizajni dhe ngjyre</li>
+                            <li>Harduerë me cilësi të lartë të përfshirë</li>
+                            <li>Vetë izolimi të zërit</li>
+                        </ul>
+                    </div>
+                    <div class="product-modal-specs">
+                        <h4>Specifikimet:</h4>
+                        <p><strong>Trashësia: </strong>1.2 mm</p>
+                        <p><strong>Materiali: </strong>Alumini me izolim termik</p>
+                        <p><strong>Lloji i Xhamit: </strong>Xham i dyfishtë izolues me argon</p>
+                        <p><strong>Garancia: </strong>5 vjet</p>
+                    </div>
+                    <div class="product-modal-actions">
+                        <a href="#contact-section" class="product-modal-btn btn-inquire" onclick="closeProductModal('product2')">
+                            <i class="fas fa-info-circle"></i> Kërko Informacion
+                        </a>
+                        <a href="Katalogu 1.pdf" target="_blank" class="product-modal-btn btn-catalog">
+                            <i class="fas fa-book-open"></i> Shiko Katalogun
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="product3-modal" class="product-modal">
+        <div class="product-modal-content">
+            <span class="product-modal-close" onclick="closeProductModal('product3')">&times;</span>
+            <div class="product-modal-body">
+                <div class="product-modal-image">
+                    <img src="deregjamit.png" alt="Dritare Premium">
+                </div>
+                <div class="product-modal-details">
+                    <h2 class="product-modal-title">Dritare Premium</h2>
+                    <div class="product-modal-brand">AluPlast</div>
+                    <p class="product-modal-description">
+                        Dritaret tona premium janë projektuar për performancë, duke kombinuar efikasitetin energjetik me dizajnin elegant.
+                        Ato ofrojnë izolim të shkëlqyer, reduktim të zhurmës dhe siguri të përmirësuar për shtëpinë ose biznesin tuaj.
+                    </p>
+                    <div class="product-modal-features">
+                        <h4>Karakteristikat Kryesore:</h4>
+                        <ul>
+                            <li>Xhamizim me efikasitet të lartë energjetik</li>
+                            <li>Veçori të përmirësuara sigurie</li>
+                            <li>Teknologji reduktimi e zhurmës</li>
+                            <li>Operim i lehtë anësor dhe kthyes</li>
+                            <li>Kërkesa të ulëta mirëmbajtjeje</li>
+                            <li>Përmasa dhe konfigurime të personalizuara</li>
+                        </ul>
+                    </div>
+                    <div class="product-modal-specs">
+                        <h4>Specifikimet:</h4>
+                        <p><strong>Trashësia: </strong>1.0 mm</p>
+                        <p><strong>Materiali: </strong>Alumini me veshje pluhuri</p>
+                        <p><strong>Lloji i Xhamit: </strong>Xham i dyfishtë izolues me argon</p>
+                        <p><strong>Garancia: </strong>5 vjet</p>
+                    </div>
+                    <div class="product-modal-actions">
+                        <a href="#contact-section" class="product-modal-btn btn-inquire" onclick="closeProductModal('product3')">
+                            <i class="fas fa-info-circle"></i> Kërko Informacion
+                        </a>
+                        <a href="Katalogu 1.pdf" target="_blank" class="product-modal-btn btn-catalog">
+                            <i class="fas fa-book-open"></i> Shiko Katalogun
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+
+        // Scroll to section smoothly
+        function navigateToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu after navigation
+                if (window.innerWidth <= 768) {
+                    toggleMenu();
+                }
+            }
+        }
+
+        // Animate service items on scroll
+        const serviceItems = document.querySelectorAll('.service-item');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        serviceItems.forEach(item => observer.observe(item));
+
+        // Language change functionality
+        function changeLanguage(language) {
+            const translations = {
+                sq: {
+                    "home-title": "Zgjidhje Premium për Dritare dhe Xham",
+                    "home-subtitle": "24 Vjet Ekselencë në Cilësi dhe Siguri - Ofruam produkte me cilësi të lartë gjermane me instalim profesional",
+                    "button:first-of-type": "Shiko Katalogun",
+                    "button:last-of-type": "Shiko Videon",
+                    "services-title": "Shërbimet Tona",
+                    "services-subtitle": "Zgjidhje të plota për të gjitha nevojat tuaja për dritare dhe xham",
+                    "install-title": "Instalim Profesional",
+                    "install-text": "Ofrojmë instalime të precizuara në çdo kohë dhe vend sipas kërkesave tuaja specifike.",
+                    "delivery-title": "Dërgesë e Shpejtë",
+                    "delivery-text": "Dërgesë e shpejtë dhe e besueshme në çdo vendndodhje me trajtim të kujdesshëm.",
+                    "materials-title": "Materiale Premium",
+                    "materials-text": "Punojmë ekskluzivisht me materiale të cilësisë më të lartë gjermane për qëndrueshmëri.",
+                    "payment-title": "Pagesë Fleksibile",
+                    "payment-text": "Ofrojmë opsione të ndryshme pagese, duke përfshirë financimin bankar ose planpagesa.",
+                    "guarantee-title": "Garancia 5-Vjeçare",
+                    "guarantee-text": "Ofrojmë deri në 5 vjet garanci për produktet tona për rehatinë tuaj.",
+                    "products-title": "Produktet Tona",
+                    "products-subtitle": "Dritare dhe dyert me cilësi të lartë për ambientet moderne",
+                    "product1-title": "Dera Rrëshqitëse",
+                    "product1-text": "Zbuloni derën tonë premium rrëshqitëse me karakteristika inovative dhe dizajn elegant.",
+                    "product2-title": "Dera Hyrëse",
+                    "product2-text": "Cilësi dhe siguri të shkëlqyera me veti të shkëlqyera termoizoluese.",
+                    "product3-title": "Dritare Premium",
+                    "product3-text": "Dritare me efikasitet të lartë energjetik që kombinojnë qëndrueshmërinë me estetikën.",
+                    "contact-title": "Na Kontaktoni",
+                    "contact-description": "Lidhuni me ne për një konsultim falas dhe kuotë",
+                    "location-title": "Vendndodhja Jonë",
+                    "location-description": "Vizitoni showroom-in tonë për të parë produktet tona personalisht",
+                    "aboutus-text": "Me 24 vjet përvojë, ne ofrojmë zgjidhje premium për dritare dhe xham me materiale të cilësisë gjermane dhe shërbime instalimi profesionale.",
+                    "footer-text": "&copy; 2025 AGI Plast. Të gjitha të drejtat e rezervuara."
+                },
+                en: {
+                    "home-title": "Premium Windows & Glass Solutions",
+                    "home-subtitle": "24 Years of Excellence in Quality and Safety - We provide high-quality German products with professional installation",
+                    "button:first-of-type": "View Catalog",
+                    "button:last-of-type": "Watch Video",
+                    "services-title": "Our Services",
+                    "services-subtitle": "Complete solutions for all your window and glass needs",
+                    "install-title": "Professional Installation",
+                    "install-text": "We offer precision installations at any time and place according to your specific requirements.",
+                    "delivery-title": "Fast Delivery",
+                    "delivery-text": "Fast and reliable delivery to any location with careful handling.",
+                    "materials-title": "Premium Materials",
+                    "materials-text": "We work exclusively with the highest quality German materials for durability.",
+                    "payment-title": "Flexible Payment",
+                    "payment-text": "We offer various payment options including bank financing or payment plans.",
+                    "guarantee-title": "5-Year Guarantee",
+                    "guarantee-text": "We provide up to 5 years warranty on our products for your peace of mind.",
+                    "products-title": "Our Products",
+                    "products-subtitle": "High-quality windows and doors for modern spaces",
+                    "product1-title": "Sliding Door",
+                    "product1-text": "Discover our premium sliding door with innovative features and elegant design.",
+                    "product2-title": "Entrance Door",
+                    "product2-text": "Excellent quality and security with great thermal insulation properties.",
+                    "product3-title": "Premium Window",
+                    "product3-text": "High energy efficiency windows that combine durability with aesthetics.",
+                    "contact-title": "Contact Us",
+                    "contact-description": "Get in touch for a free consultation and quote",
+                    "location-title": "Our Location",
+                    "location-description": "Visit our showroom to see our products in person",
+                    "aboutus-text": "With 24 years of experience, we provide premium window and glass solutions with German-quality materials and professional installation services.",
+                    "footer-text": "&copy; 2025 AGI Plast. All rights reserved."
+                },
+                de: {
+                    "home-title": "Premium Fenster- und Glaslösungen",
+                    "home-subtitle": "24 Jahre Exzellenz in Qualität und Sicherheit - Wir bieten hochwertige deutsche Produkte mit professioneller Installation",
+                    "button:first-of-type": "Katalog Ansehen",
+                    "button:last-of-type": "Video Ansehen",
+                    "services-title": "Unsere Dienstleistungen",
+                    "services-subtitle": "Komplette Lösungen für alle Ihre Fenster- und Glasbedürfnisse",
+                    "install-title": "Professionelle Installation",
+                    "install-text": "Wir bieten Präzisionsinstallationen zu jeder Zeit und an jedem Ort nach Ihren spezifischen Anforderungen.",
+                    "delivery-title": "Schnelle Lieferung",
+                    "delivery-text": "Schnelle und zuverlässige Lieferung an jeden Ort mit sorgfältiger Handhabung.",
+                    "materials-title": "Premium Materialien",
+                    "materials-text": "Wir arbeiten ausschließlich mit hochwertigsten deutschen Materialien für Langlebigkeit.",
+                    "payment-title": "Flexible Zahlung",
+                    "payment-text": "Wir bieten verschiedene Zahlungsoptionen, einschließlich Bankfinanzierung oder Zahlungspläne.",
+                    "guarantee-title": "5-Jahre Garantie",
+                    "guarantee-text": "Wir gewähren bis zu 5 Jahre Garantie auf unsere Produkte für Ihr Wohlbefinden.",
+                    "products-title": "Unsere Produkte",
+                    "products-subtitle": "Hochwertige Fenster und Türen für moderne Räume",
+                    "product1-title": "Schiebetür",
+                    "product1-text": "Entdecken Sie unsere Premium-Schiebetür mit innovativen Funktionen und elegantem Design.",
+                    "product2-title": "Eingangstür",
+                    "product2-text": "Hervorragende Qualität und Sicherheit mit großartigen Wärmedämmeigenschaften.",
+                    "product3-title": "Premium Fenster",
+                    "product3-text": "Hochenergieeffiziente Fenster, die Langlebigkeit mit Ästhetik verbinden.",
+                    "contact-title": "Kontaktieren Sie Uns",
+                    "contact-description": "Kontaktieren Sie uns für eine kostenlose Beratung und ein Angebot",
+                    "location-title": "Unser Standort",
+                    "location-description": "Besuchen Sie unseren Showroom, um unsere Produkte persönlich zu sehen",
+                    "aboutus-text": "Mit 24 Jahren Erfahrung bieten wir Premium-Fenster- und Glaslösungen mit deutschen Qualitätsmaterialien und professionellen Installationsdienstleistungen.",
+                    "footer-text": "&copy; 2025 AGI Plast. Alle Rechte vorbehalten."
+                }
+            };
+
+            // Update text for all elements
+            const lang = translations[language];
+            for (let key in lang) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.innerText = lang[key];
+                }
+            }
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = language;
+            
+            // Update navigation based on language
+            updateNavigationLanguage(language);
+        }
+
+        function updateNavigationLanguage(language) {
+            const navTranslations = {
+                sq: {
+                    "home": "Kryefaqja",
+                    "services": "Shërbimet",
+                    "products": "Produktet",
+                    "contact": "Kontakt"
+                },
+                en: {
+                    "home": "Home",
+                    "services": "Services",
+                    "products": "Products",
+                    "contact": "Contact"
+                },
+                de: {
+                    "home": "Home",
+                    "services": "Dienstleistungen",
+                    "products": "Produkte",
+                    "contact": "Kontakt"
+                }
+            };
+            
+            const navItems = document.querySelectorAll('.menu-links a');
+            if (navItems.length >= 4) {
+                navItems[0].textContent = navTranslations[language].home;
+                navItems[1].textContent = navTranslations[language].services;
+                navItems[2].textContent = navTranslations[language].products;
+                navItems[3].textContent = navTranslations[language].contact;
+            }
+            
+            // Update language switcher text
+            const languageTexts = {
+                sq: "Shqip",
+                en: "English",
+                de: "Deutsch"
+            };
+            document.getElementById('changeLanguage').textContent = languageTexts[language];
+        }
+
+        // Video modal functions
+        function openVideo() {
+            alert("Video functionality would open here");
+        }
+
+        // Product modal functions
+        function openProductModal(productId) {
+            document.getElementById(`${productId}-modal`).style.display = "block";
+            document.body.style.overflow = "hidden"; // Prevent background scrolling
+        }
+
+        function closeProductModal(productId) {
+            document.getElementById(`${productId}-modal`).style.display = "none";
+            document.body.style.overflow = "auto"; // Re-enable scrolling
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            // Product modals
+            const productModals = document.querySelectorAll('.product-modal');
+            productModals.forEach(modal => {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    document.body.style.overflow = "auto";
+                }
+            });
+        }
+
+        // Form submission handling
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Faleminderit për mesazhin! Do t\'ju kontaktojmë së shpejti.');
+            this.reset();
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const productModals = document.querySelectorAll('.product-modal');
+                productModals.forEach(modal => {
+                    if (modal.style.display === "block") {
+                        modal.style.display = "none";
+                        document.body.style.overflow = "auto";
+                    }
+                });
+            }
+        });
+
+        // Initialize page with Albanian as default
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set Albanian as default language
+            changeLanguage('sq');
+            
+            // Animate service items on scroll
+            const serviceItems = document.querySelectorAll('.service-item');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            serviceItems.forEach(item => observer.observe(item));
+        });
+    </script>
+</body>
+</html>
