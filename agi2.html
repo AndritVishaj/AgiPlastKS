@@ -1134,6 +1134,7 @@
 
     <!-- Contact Section -->
    <!-- Contact Section -->
+<!-- Contact Section -->
 <section class="contact-section" id="contact-section">
     <div class="section-header">
         <h2 id="contact-title">Na Kontaktoni</h2>
@@ -1174,20 +1175,16 @@
         </div>
         <div class="contact-form">
             <h3>Dërgo mesazh</h3>
-            <form id="contactForm" action="https://formsubmit.co/101webstudio@gmail.com" method="POST">
-                
-                <!-- Hidden fields for FormSubmit configuration -->
-                <input type="hidden" name="_subject" value="Mesazh i ri nga faqja AGI Plast!">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://agiplast-ks.com/faleminderit.html">
-                <input type="hidden" name="_autoresponse" value="Faleminderit për mesazhin tuaj. Ekipi i AGI Plast do t'ju kontaktojë së shpejti!">
-                
-                <!-- Form fields - me name attribute që kërkohet -->
-                <input type="text" name="Emri i plote" placeholder="Emri i plotë" required>
+            <form id="contactForm" action="https://formspree.io/f/k6bn6ktibhh" method="POST">
+                <!-- Form fields -->
+                <input type="text" name="Emri" placeholder="Emri i plotë" required>
                 <input type="email" name="Email" placeholder="Email adresa" required>
                 <input type="tel" name="Telefoni" placeholder="Telefoni">
                 <textarea name="Mesazhi" placeholder="Mesazhi juaj" rows="5" required></textarea>
+                
+                <!-- Optional: Add a reply-to field so you can reply directly -->
+                <input type="hidden" name="_replyto" value="%email%">
+                
                 <button type="submit">Dërgo Mesazhin</button>
             </form>
         </div>
@@ -1619,24 +1616,45 @@
             });
         }
 
-// Dhe shto këtë kod të ri (opsional - për të treguar një mesazh para se të dërgohet):
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    // Nuk e ndalojmë submit-in, por tregojmë një mesazh loading
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerText;
-    submitBtn.innerText = 'Duke dërguar...';
-    submitBtn.disabled = true;
-    
-    // Lejojmë form-in të dërgohet normalisht
-    // FormSubmit do të redirectojë në faqen e faleminderit
-    setTimeout(function() {
-        submitBtn.innerText = originalText;
-        submitBtn.disabled = false;
-    }, 3000);
-});
+// Form submission handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // Tregojmë një mesazh loading
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerText;
+        submitBtn.innerText = 'Duke dërguar...';
+        submitBtn.disabled = true;
+        
+        // Forma do të dërgohet normalisht dhe Formspree do të redirectojë
+        // Nuk e ndalojmë submit-in me e.preventDefault()
+        
+        // Nëse doni të ktheni butonin pas 5 sekondash në rast se diçka shkon gabim
+        setTimeout(function() {
+            submitBtn.innerText = originalText;
+            submitBtn.disabled = false;
+        }, 5000);
+    });
+
+    // Initialize page with Albanian as default
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set Albanian as default language
+        changeLanguage('sq');
+        
+        // Animate service items on scroll
+        const serviceItems = document.querySelectorAll('.service-item');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        serviceItems.forEach(item => observer.observe(item));
+    });
     </script>
 </body>
 </html>
+
 
 
 
