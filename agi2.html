@@ -1618,52 +1618,6 @@
             });
         }
 
-        // Form submission handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Faleminderit për mesazhin! Do t\'ju kontaktojmë së shpejti.');
-            this.reset();
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === "Escape") {
-                const productModals = document.querySelectorAll('.product-modal');
-                productModals.forEach(modal => {
-                    if (modal.style.display === "block") {
-                        modal.style.display = "none";
-                        document.body.style.overflow = "auto";
-                    }
-                });
-            }
-        });
-
-        // Initialize page with Albanian as default
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set Albanian as default language
-            changeLanguage('sq');
-            
-            // Animate service items on scroll
-            const serviceItems = document.querySelectorAll('.service-item');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('show');
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            serviceItems.forEach(item => observer.observe(item));
-        });
-        // Form submission handling - Hiq këtë pjesë të vjetër:
-/*
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Faleminderit për mesazhin! Do t\'ju kontaktojmë së shpejti.');
-    this.reset();
-});
-*/
-
 // Dhe shto këtë kod të ri (opsional - për të treguar një mesazh para se të dërgohet):
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     // Nuk e ndalojmë submit-in, por tregojmë një mesazh loading
@@ -1682,6 +1636,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     </script>
 </body>
 </html>
+
 
 
 
