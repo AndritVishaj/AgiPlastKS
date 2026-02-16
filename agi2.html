@@ -1136,6 +1136,7 @@
    <!-- Contact Section -->
 <!-- Contact Section -->
 <!-- Contact Section -->
+<!-- Contact Section -->
 <section class="contact-section" id="contact-section">
     <div class="section-header">
         <h2 id="contact-title">Na Kontaktoni</h2>
@@ -1176,33 +1177,20 @@
         </div>
         <div class="contact-form">
             <h3>Dërgo mesazh</h3>
-            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-                <!-- Web3Forms Access Key -->
-                <input type="hidden" name="access_key" value="1d9158c3-5143-4296-800c-c3d1860c3187">
-                
-                <!-- Optional: Redirect after submission -->
-                <!-- Optional: Email subject -->
-                <input type="hidden" name="subject" value="Mesazh i ri nga AGI Plast Website">
-                
-                <!-- Optional: From name -->
-                <input type="hidden" name="from_name" value="AGI Plast Website Form">
-                
-                <!-- Optional: Reply to (uses email field) -->
-                <input type="hidden" name="replyto" value="email">
-                
-                <!-- Form fields - name attributes are important -->
+            <form id="contactForm" action="send_email.php" method="POST">
+                <!-- Form fields -->
                 <input type="text" name="name" placeholder="Emri i plotë" required>
                 <input type="email" name="email" placeholder="Email adresa" required>
                 <input type="tel" name="phone" placeholder="Telefoni">
                 <textarea name="message" placeholder="Mesazhi juaj" rows="5" required></textarea>
                 
-                <!-- Honeypot spam protection -->
-                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <!-- Honeypot për spam protection -->
+                <input type="text" name="honeypot" style="display: none;">
                 
                 <button type="submit">Dërgo Mesazhin</button>
             </form>
             
-            <!-- Status message (optional) -->
+            <!-- Status message -->
             <div id="form-status" style="margin-top: 15px; text-align: center;"></div>
         </div>
     </div>
@@ -1415,7 +1403,7 @@
     </div>
 
     <script>
-      <script>
+        
     // Toggle mobile menu
     function toggleMenu() {
         const menu = document.querySelector('.menu');
@@ -1628,9 +1616,9 @@
         });
     }
 
-    // Web3Forms Form Submission with AJAX (without page reload)
+    // Form submission handling with AJAX
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
-        e.preventDefault(); // Prevent default form submission
+        e.preventDefault();
         
         const form = e.target;
         const formData = new FormData(form);
@@ -1647,27 +1635,26 @@
         }
         
         try {
-            const response = await fetch(form.action, {
+            const response = await fetch('send_email.php', {
                 method: 'POST',
                 body: formData
             });
             
-            const data = await response.json();
+            const text = await response.text();
             
-            if (data.success) {
-                // Success - show message and reset form
-                if (statusDiv) {
-                    statusDiv.innerHTML = '<div style="color: #4CAF50; padding: 10px; background: #e8f5e8; border-radius: 5px;">✓ Mesazhi u dërgua me sukses! Do të kontaktojmë së shpejti.</div>';
-                } else {
-                    alert('Faleminderit! Mesazhi u dërgua me sukses.');
-                }
-                form.reset();
-                
-                // Optional: Redirect after 2 seconds
-                setTimeout(() => {
+            if (response.ok) {
+                // Check if redirected to faleminderit.html
+                if (response.url.includes('faleminderit.html')) {
                     window.location.href = 'faleminderit.html';
-                }, 2000);
-                
+                } else {
+                    // Success but no redirect
+                    if (statusDiv) {
+                        statusDiv.innerHTML = '<div style="color: #4CAF50; padding: 10px; background: #e8f5e8; border-radius: 5px;">✓ Mesazhi u dërgua me sukses! Do të kontaktojmë së shpejti.</div>';
+                    } else {
+                        alert('Faleminderit! Mesazhi u dërgua me sukses.');
+                    }
+                    form.reset();
+                }
             } else {
                 // Error
                 if (statusDiv) {
@@ -1684,35 +1671,13 @@
                 alert('Ndodhi një gabim. Ju lutemi provoni përsëri.');
             }
         } finally {
-            // Re-enable button
             submitBtn.innerText = originalText;
             submitBtn.disabled = false;
         }
     });
 
-    // Alternative: If you prefer traditional redirect instead of AJAX, use this version:
-    /*
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        // Tregojmë një mesazh loading
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerText;
-        submitBtn.innerText = 'Duke dërguar...';
-        submitBtn.disabled = true;
-        
-        // Forma do të dërgohet normalisht dhe Web3Forms do të redirectojë
-        // Nuk e ndalojmë submit-in me e.preventDefault()
-        
-        // Nëse doni të ktheni butonin pas 5 sekondash në rast se diçka shkon gabim
-        setTimeout(function() {
-            submitBtn.innerText = originalText;
-            submitBtn.disabled = false;
-        }, 5000);
-    });
-    */
-
     // Initialize page with Albanian as default
     document.addEventListener('DOMContentLoaded', function() {
-        // Set Albanian as default language
         changeLanguage('sq');
         
         // Animate service items on scroll
@@ -1727,10 +1692,10 @@
 
         serviceItems.forEach(item => observer.observe(item));
     });
-</script>
     </script>
 </body>
 </html>
+
 
 
 
