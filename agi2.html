@@ -1135,6 +1135,7 @@
     <!-- Contact Section -->
    <!-- Contact Section -->
 <!-- Contact Section -->
+<!-- Contact Section -->
 <section class="contact-section" id="contact-section">
     <div class="section-header">
         <h2 id="contact-title">Na Kontaktoni</h2>
@@ -1175,18 +1176,34 @@
         </div>
         <div class="contact-form">
             <h3>Dërgo mesazh</h3>
-            <form id="contactForm" action="https://formspree.io/f/k6bn6ktibhh" method="POST">
-                <!-- Form fields -->
-                <input type="text" name="Emri" placeholder="Emri i plotë" required>
-                <input type="email" name="Email" placeholder="Email adresa" required>
-                <input type="tel" name="Telefoni" placeholder="Telefoni">
-                <textarea name="Mesazhi" placeholder="Mesazhi juaj" rows="5" required></textarea>
+            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="1d9158c3-5143-4296-800c-c3d1860c3187">
                 
-                <!-- Optional: Add a reply-to field so you can reply directly -->
-                <input type="hidden" name="_replyto" value="%email%">
+                <!-- Optional: Redirect after submission -->
+                <!-- Optional: Email subject -->
+                <input type="hidden" name="subject" value="Mesazh i ri nga AGI Plast Website">
+                
+                <!-- Optional: From name -->
+                <input type="hidden" name="from_name" value="AGI Plast Website Form">
+                
+                <!-- Optional: Reply to (uses email field) -->
+                <input type="hidden" name="replyto" value="email">
+                
+                <!-- Form fields - name attributes are important -->
+                <input type="text" name="name" placeholder="Emri i plotë" required>
+                <input type="email" name="email" placeholder="Email adresa" required>
+                <input type="tel" name="phone" placeholder="Telefoni">
+                <textarea name="message" placeholder="Mesazhi juaj" rows="5" required></textarea>
+                
+                <!-- Honeypot spam protection -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                 
                 <button type="submit">Dërgo Mesazhin</button>
             </form>
+            
+            <!-- Status message (optional) -->
+            <div id="form-status" style="margin-top: 15px; text-align: center;"></div>
         </div>
     </div>
 </section>
@@ -1398,225 +1415,283 @@
     </div>
 
     <script>
-        // Toggle mobile menu
-        function toggleMenu() {
-            const menu = document.querySelector('.menu');
-            menu.classList.toggle('active');
-        }
+      <script>
+    // Toggle mobile menu
+    function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        menu.classList.toggle('active');
+    }
 
-        // Scroll to section smoothly
-        function navigateToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                window.scrollTo({
-                    top: section.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+    // Scroll to section smoothly
+    function navigateToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            window.scrollTo({
+                top: section.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            
+            // Close mobile menu after navigation
+            if (window.innerWidth <= 768) {
+                toggleMenu();
+            }
+        }
+    }
+
+    // Animate service items on scroll
+    const serviceItems = document.querySelectorAll('.service-item');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    serviceItems.forEach(item => observer.observe(item));
+
+    // Language change functionality
+    function changeLanguage(language) {
+        const translations = {
+            sq: {
+                "home-title": "Zgjidhje Premium për Dritare dhe Xham",
+                "home-subtitle": "24 Vjet Ekselencë në Cilësi dhe Siguri - Ofruam produkte me cilësi të lartë gjermane me instalim profesional",
+                "button:first-of-type": "Shiko Katalogun",
+                "button:last-of-type": "Shiko Videon",
+                "services-title": "Shërbimet Tona",
+                "services-subtitle": "Zgjidhje të plota për të gjitha nevojat tuaja për dritare dhe xham",
+                "install-title": "Instalim Profesional",
+                "install-text": "Ofrojmë instalime të precizuara në çdo kohë dhe vend sipas kërkesave tuaja specifike.",
+                "delivery-title": "Dërgesë e Shpejtë",
+                "delivery-text": "Dërgesë e shpejtë dhe e besueshme në çdo vendndodhje me trajtim të kujdesshëm.",
+                "materials-title": "Materiale Premium",
+                "materials-text": "Punojmë ekskluzivisht me materiale të cilësisë më të lartë gjermane për qëndrueshmëri.",
+                "payment-title": "Pagesë Fleksibile",
+                "payment-text": "Ofrojmë opsione të ndryshme pagese, duke përfshirë financimin bankar ose planpagesa.",
+                "guarantee-title": "Garancia 5-Vjeçare",
+                "guarantee-text": "Ofrojmë deri në 5 vjet garanci për produktet tona për rehatinë tuaj.",
+                "products-title": "Produktet Tona",
+                "products-subtitle": "Dritare dhe dyert me cilësi të lartë për ambientet moderne",
+                "product1-title": "Dera Rrëshqitëse",
+                "product1-text": "Zbuloni derën tonë premium rrëshqitëse me karakteristika inovative dhe dizajn elegant.",
+                "product2-title": "Dera Hyrëse",
+                "product2-text": "Cilësi dhe siguri të shkëlqyera me veti të shkëlqyera termoizoluese.",
+                "product3-title": "Dritare Premium",
+                "product3-text": "Dritare me efikasitet të lartë energjetik që kombinojnë qëndrueshmërinë me estetikën.",
+                "contact-title": "Na Kontaktoni",
+                "contact-description": "Lidhuni me ne për një konsultim falas dhe kuotë",
+                "location-title": "Vendndodhja Jonë",
+                "location-description": "Vizitoni showroom-in tonë për të parë produktet tona personalisht",
+                "aboutus-text": "Me 24 vjet përvojë, ne ofrojmë zgjidhje premium për dritare dhe xham me materiale të cilësisë gjermane dhe shërbime instalimi profesionale.",
+                "footer-text": "&copy; 2025 AGI Plast. Të gjitha të drejtat e rezervuara."
+            },
+            en: {
+                "home-title": "Premium Windows & Glass Solutions",
+                "home-subtitle": "24 Years of Excellence in Quality and Safety - We provide high-quality German products with professional installation",
+                "button:first-of-type": "View Catalog",
+                "button:last-of-type": "Watch Video",
+                "services-title": "Our Services",
+                "services-subtitle": "Complete solutions for all your window and glass needs",
+                "install-title": "Professional Installation",
+                "install-text": "We offer precision installations at any time and place according to your specific requirements.",
+                "delivery-title": "Fast Delivery",
+                "delivery-text": "Fast and reliable delivery to any location with careful handling.",
+                "materials-title": "Premium Materials",
+                "materials-text": "We work exclusively with the highest quality German materials for durability.",
+                "payment-title": "Flexible Payment",
+                "payment-text": "We offer various payment options including bank financing or payment plans.",
+                "guarantee-title": "5-Year Guarantee",
+                "guarantee-text": "We provide up to 5 years warranty on our products for your peace of mind.",
+                "products-title": "Our Products",
+                "products-subtitle": "High-quality windows and doors for modern spaces",
+                "product1-title": "Sliding Door",
+                "product1-text": "Discover our premium sliding door with innovative features and elegant design.",
+                "product2-title": "Entrance Door",
+                "product2-text": "Excellent quality and security with great thermal insulation properties.",
+                "product3-title": "Premium Window",
+                "product3-text": "High energy efficiency windows that combine durability with aesthetics.",
+                "contact-title": "Contact Us",
+                "contact-description": "Get in touch for a free consultation and quote",
+                "location-title": "Our Location",
+                "location-description": "Visit our showroom to see our products in person",
+                "aboutus-text": "With 24 years of experience, we provide premium window and glass solutions with German-quality materials and professional installation services.",
+                "footer-text": "&copy; 2025 AGI Plast. All rights reserved."
+            },
+            de: {
+                "home-title": "Premium Fenster- und Glaslösungen",
+                "home-subtitle": "24 Jahre Exzellenz in Qualität und Sicherheit - Wir bieten hochwertige deutsche Produkte mit professioneller Installation",
+                "button:first-of-type": "Katalog Ansehen",
+                "button:last-of-type": "Video Ansehen",
+                "services-title": "Unsere Dienstleistungen",
+                "services-subtitle": "Komplette Lösungen für alle Ihre Fenster- und Glasbedürfnisse",
+                "install-title": "Professionelle Installation",
+                "install-text": "Wir bieten Präzisionsinstallationen zu jeder Zeit und an jedem Ort nach Ihren spezifischen Anforderungen.",
+                "delivery-title": "Schnelle Lieferung",
+                "delivery-text": "Schnelle und zuverlässige Lieferung an jeden Ort mit sorgfältiger Handhabung.",
+                "materials-title": "Premium Materialien",
+                "materials-text": "Wir arbeiten ausschließlich mit hochwertigsten deutschen Materialien für Langlebigkeit.",
+                "payment-title": "Flexible Zahlung",
+                "payment-text": "Wir bieten verschiedene Zahlungsoptionen, einschließlich Bankfinanzierung oder Zahlungspläne.",
+                "guarantee-title": "5-Jahre Garantie",
+                "guarantee-text": "Wir gewähren bis zu 5 Jahre Garantie auf unsere Produkte für Ihr Wohlbefinden.",
+                "products-title": "Unsere Produkte",
+                "products-subtitle": "Hochwertige Fenster und Türen für moderne Räume",
+                "product1-title": "Schiebetür",
+                "product1-text": "Entdecken Sie unsere Premium-Schiebetür mit innovativen Funktionen und elegantem Design.",
+                "product2-title": "Eingangstür",
+                "product2-text": "Hervorragende Qualität und Sicherheit mit großartigen Wärmedämmeigenschaften.",
+                "product3-title": "Premium Fenster",
+                "product3-text": "Hochenergieeffiziente Fenster, die Langlebigkeit mit Ästetik verbinden.",
+                "contact-title": "Kontaktieren Sie Uns",
+                "contact-description": "Kontaktieren Sie uns für eine kostenlose Beratung und ein Angebot",
+                "location-title": "Unser Standort",
+                "location-description": "Besuchen Sie unseren Showroom, um unsere Produkte persönlich zu sehen",
+                "aboutus-text": "Mit 24 Jahren Erfahrung bieten wir Premium-Fenster- und Glaslösungen mit deutschen Qualitätsmaterialien und professionellen Installationsdienstleistungen.",
+                "footer-text": "&copy; 2025 AGI Plast. Alle Rechte vorbehalten."
+            }
+        };
+
+        // Update text for all elements
+        const lang = translations[language];
+        for (let key in lang) {
+            const element = document.getElementById(key);
+            if (element) {
+                element.innerText = lang[key];
+            }
+        }
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = language;
+        
+        // Update navigation based on language
+        updateNavigationLanguage(language);
+    }
+
+    function updateNavigationLanguage(language) {
+        const navTranslations = {
+            sq: {
+                "home": "Kryefaqja",
+                "services": "Shërbimet",
+                "products": "Produktet",
+                "contact": "Kontakt"
+            },
+            en: {
+                "home": "Home",
+                "services": "Services",
+                "products": "Products",
+                "contact": "Contact"
+            },
+            de: {
+                "home": "Home",
+                "services": "Dienstleistungen",
+                "products": "Produkte",
+                "contact": "Kontakt"
+            }
+        };
+        
+        const navItems = document.querySelectorAll('.menu-links a');
+        if (navItems.length >= 4) {
+            navItems[0].textContent = navTranslations[language].home;
+            navItems[1].textContent = navTranslations[language].services;
+            navItems[2].textContent = navTranslations[language].products;
+            navItems[3].textContent = navTranslations[language].contact;
+        }
+        
+        // Update language switcher text
+        const languageTexts = {
+            sq: "Shqip",
+            en: "English",
+            de: "Deutsch"
+        };
+        document.getElementById('changeLanguage').textContent = languageTexts[language];
+    }
+
+    // Product modal functions
+    function openProductModal(productId) {
+        document.getElementById(`${productId}-modal`).style.display = "block";
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeProductModal(productId) {
+        document.getElementById(`${productId}-modal`).style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    // Close modals when clicking outside
+    window.onclick = function(event) {
+        const productModals = document.querySelectorAll('.product-modal');
+        productModals.forEach(modal => {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        });
+    }
+
+    // Web3Forms Form Submission with AJAX (without page reload)
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault(); // Prevent default form submission
+        
+        const form = e.target;
+        const formData = new FormData(form);
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerText;
+        const statusDiv = document.getElementById('form-status');
+        
+        // Disable button and show loading
+        submitBtn.innerText = 'Duke dërguar...';
+        submitBtn.disabled = true;
+        
+        if (statusDiv) {
+            statusDiv.innerHTML = '';
+        }
+        
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                // Success - show message and reset form
+                if (statusDiv) {
+                    statusDiv.innerHTML = '<div style="color: #4CAF50; padding: 10px; background: #e8f5e8; border-radius: 5px;">✓ Mesazhi u dërgua me sukses! Do të kontaktojmë së shpejti.</div>';
+                } else {
+                    alert('Faleminderit! Mesazhi u dërgua me sukses.');
+                }
+                form.reset();
                 
-                // Close mobile menu after navigation
-                if (window.innerWidth <= 768) {
-                    toggleMenu();
+                // Optional: Redirect after 2 seconds
+                setTimeout(() => {
+                    window.location.href = 'faleminderit.html';
+                }, 2000);
+                
+            } else {
+                // Error
+                if (statusDiv) {
+                    statusDiv.innerHTML = '<div style="color: #f44336; padding: 10px; background: #ffebee; border-radius: 5px;">✗ Ndodhi një gabim. Ju lutemi provoni përsëri.</div>';
+                } else {
+                    alert('Ndodhi një gabim. Ju lutemi provoni përsëri.');
                 }
             }
-        }
-
-        // Animate service items on scroll
-        const serviceItems = document.querySelectorAll('.service-item');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, { threshold: 0.2 });
-
-        serviceItems.forEach(item => observer.observe(item));
-
-        // Language change functionality
-        function changeLanguage(language) {
-            const translations = {
-                sq: {
-                    "home-title": "Zgjidhje Premium për Dritare dhe Xham",
-                    "home-subtitle": "24 Vjet Ekselencë në Cilësi dhe Siguri - Ofruam produkte me cilësi të lartë gjermane me instalim profesional",
-                    "button:first-of-type": "Shiko Katalogun",
-                    "button:last-of-type": "Shiko Videon",
-                    "services-title": "Shërbimet Tona",
-                    "services-subtitle": "Zgjidhje të plota për të gjitha nevojat tuaja për dritare dhe xham",
-                    "install-title": "Instalim Profesional",
-                    "install-text": "Ofrojmë instalime të precizuara në çdo kohë dhe vend sipas kërkesave tuaja specifike.",
-                    "delivery-title": "Dërgesë e Shpejtë",
-                    "delivery-text": "Dërgesë e shpejtë dhe e besueshme në çdo vendndodhje me trajtim të kujdesshëm.",
-                    "materials-title": "Materiale Premium",
-                    "materials-text": "Punojmë ekskluzivisht me materiale të cilësisë më të lartë gjermane për qëndrueshmëri.",
-                    "payment-title": "Pagesë Fleksibile",
-                    "payment-text": "Ofrojmë opsione të ndryshme pagese, duke përfshirë financimin bankar ose planpagesa.",
-                    "guarantee-title": "Garancia 5-Vjeçare",
-                    "guarantee-text": "Ofrojmë deri në 5 vjet garanci për produktet tona për rehatinë tuaj.",
-                    "products-title": "Produktet Tona",
-                    "products-subtitle": "Dritare dhe dyert me cilësi të lartë për ambientet moderne",
-                    "product1-title": "Dera Rrëshqitëse",
-                    "product1-text": "Zbuloni derën tonë premium rrëshqitëse me karakteristika inovative dhe dizajn elegant.",
-                    "product2-title": "Dera Hyrëse",
-                    "product2-text": "Cilësi dhe siguri të shkëlqyera me veti të shkëlqyera termoizoluese.",
-                    "product3-title": "Dritare Premium",
-                    "product3-text": "Dritare me efikasitet të lartë energjetik që kombinojnë qëndrueshmërinë me estetikën.",
-                    "contact-title": "Na Kontaktoni",
-                    "contact-description": "Lidhuni me ne për një konsultim falas dhe kuotë",
-                    "location-title": "Vendndodhja Jonë",
-                    "location-description": "Vizitoni showroom-in tonë për të parë produktet tona personalisht",
-                    "aboutus-text": "Me 24 vjet përvojë, ne ofrojmë zgjidhje premium për dritare dhe xham me materiale të cilësisë gjermane dhe shërbime instalimi profesionale.",
-                    "footer-text": "&copy; 2025 AGI Plast. Të gjitha të drejtat e rezervuara."
-                },
-                en: {
-                    "home-title": "Premium Windows & Glass Solutions",
-                    "home-subtitle": "24 Years of Excellence in Quality and Safety - We provide high-quality German products with professional installation",
-                    "button:first-of-type": "View Catalog",
-                    "button:last-of-type": "Watch Video",
-                    "services-title": "Our Services",
-                    "services-subtitle": "Complete solutions for all your window and glass needs",
-                    "install-title": "Professional Installation",
-                    "install-text": "We offer precision installations at any time and place according to your specific requirements.",
-                    "delivery-title": "Fast Delivery",
-                    "delivery-text": "Fast and reliable delivery to any location with careful handling.",
-                    "materials-title": "Premium Materials",
-                    "materials-text": "We work exclusively with the highest quality German materials for durability.",
-                    "payment-title": "Flexible Payment",
-                    "payment-text": "We offer various payment options including bank financing or payment plans.",
-                    "guarantee-title": "5-Year Guarantee",
-                    "guarantee-text": "We provide up to 5 years warranty on our products for your peace of mind.",
-                    "products-title": "Our Products",
-                    "products-subtitle": "High-quality windows and doors for modern spaces",
-                    "product1-title": "Sliding Door",
-                    "product1-text": "Discover our premium sliding door with innovative features and elegant design.",
-                    "product2-title": "Entrance Door",
-                    "product2-text": "Excellent quality and security with great thermal insulation properties.",
-                    "product3-title": "Premium Window",
-                    "product3-text": "High energy efficiency windows that combine durability with aesthetics.",
-                    "contact-title": "Contact Us",
-                    "contact-description": "Get in touch for a free consultation and quote",
-                    "location-title": "Our Location",
-                    "location-description": "Visit our showroom to see our products in person",
-                    "aboutus-text": "With 24 years of experience, we provide premium window and glass solutions with German-quality materials and professional installation services.",
-                    "footer-text": "&copy; 2025 AGI Plast. All rights reserved."
-                },
-                de: {
-                    "home-title": "Premium Fenster- und Glaslösungen",
-                    "home-subtitle": "24 Jahre Exzellenz in Qualität und Sicherheit - Wir bieten hochwertige deutsche Produkte mit professioneller Installation",
-                    "button:first-of-type": "Katalog Ansehen",
-                    "button:last-of-type": "Video Ansehen",
-                    "services-title": "Unsere Dienstleistungen",
-                    "services-subtitle": "Komplette Lösungen für alle Ihre Fenster- und Glasbedürfnisse",
-                    "install-title": "Professionelle Installation",
-                    "install-text": "Wir bieten Präzisionsinstallationen zu jeder Zeit und an jedem Ort nach Ihren spezifischen Anforderungen.",
-                    "delivery-title": "Schnelle Lieferung",
-                    "delivery-text": "Schnelle und zuverlässige Lieferung an jeden Ort mit sorgfältiger Handhabung.",
-                    "materials-title": "Premium Materialien",
-                    "materials-text": "Wir arbeiten ausschließlich mit hochwertigsten deutschen Materialien für Langlebigkeit.",
-                    "payment-title": "Flexible Zahlung",
-                    "payment-text": "Wir bieten verschiedene Zahlungsoptionen, einschließlich Bankfinanzierung oder Zahlungspläne.",
-                    "guarantee-title": "5-Jahre Garantie",
-                    "guarantee-text": "Wir gewähren bis zu 5 Jahre Garantie auf unsere Produkte für Ihr Wohlbefinden.",
-                    "products-title": "Unsere Produkte",
-                    "products-subtitle": "Hochwertige Fenster und Türen für moderne Räume",
-                    "product1-title": "Schiebetür",
-                    "product1-text": "Entdecken Sie unsere Premium-Schiebetür mit innovativen Funktionen und elegantem Design.",
-                    "product2-title": "Eingangstür",
-                    "product2-text": "Hervorragende Qualität und Sicherheit mit großartigen Wärmedämmeigenschaften.",
-                    "product3-title": "Premium Fenster",
-                    "product3-text": "Hochenergieeffiziente Fenster, die Langlebigkeit mit Ästetik verbinden.",
-                    "contact-title": "Kontaktieren Sie Uns",
-                    "contact-description": "Kontaktieren Sie uns für eine kostenlose Beratung und ein Angebot",
-                    "location-title": "Unser Standort",
-                    "location-description": "Besuchen Sie unseren Showroom, um unsere Produkte persönlich zu sehen",
-                    "aboutus-text": "Mit 24 Jahren Erfahrung bieten wir Premium-Fenster- und Glaslösungen mit deutschen Qualitätsmaterialien und professionellen Installationsdienstleistungen.",
-                    "footer-text": "&copy; 2025 AGI Plast. Alle Rechte vorbehalten."
-                }
-            };
-
-            // Update text for all elements
-            const lang = translations[language];
-            for (let key in lang) {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.innerText = lang[key];
-                }
+        } catch (error) {
+            console.error('Error:', error);
+            if (statusDiv) {
+                statusDiv.innerHTML = '<div style="color: #f44336; padding: 10px; background: #ffebee; border-radius: 5px;">✗ Ndodhi një gabim. Kontrolloni lidhjen e internetit.</div>';
+            } else {
+                alert('Ndodhi një gabim. Ju lutemi provoni përsëri.');
             }
-            
-            // Update HTML lang attribute
-            document.documentElement.lang = language;
-            
-            // Update navigation based on language
-            updateNavigationLanguage(language);
+        } finally {
+            // Re-enable button
+            submitBtn.innerText = originalText;
+            submitBtn.disabled = false;
         }
+    });
 
-        function updateNavigationLanguage(language) {
-            const navTranslations = {
-                sq: {
-                    "home": "Kryefaqja",
-                    "services": "Shërbimet",
-                    "products": "Produktet",
-                    "contact": "Kontakt"
-                },
-                en: {
-                    "home": "Home",
-                    "services": "Services",
-                    "products": "Products",
-                    "contact": "Contact"
-                },
-                de: {
-                    "home": "Home",
-                    "services": "Dienstleistungen",
-                    "products": "Produkte",
-                    "contact": "Kontakt"
-                }
-            };
-            
-            const navItems = document.querySelectorAll('.menu-links a');
-            if (navItems.length >= 4) {
-                navItems[0].textContent = navTranslations[language].home;
-                navItems[1].textContent = navTranslations[language].services;
-                navItems[2].textContent = navTranslations[language].products;
-                navItems[3].textContent = navTranslations[language].contact;
-            }
-            
-            // Update language switcher text
-            const languageTexts = {
-                sq: "Shqip",
-                en: "English",
-                de: "Deutsch"
-            };
-            document.getElementById('changeLanguage').textContent = languageTexts[language];
-        }
-
-        // Video modal functions
-        function openVideo() {
-            alert("Video functionality would open here");
-        }
-
-        // Product modal functions
-        function openProductModal(productId) {
-            document.getElementById(`${productId}-modal`).style.display = "block";
-            document.body.style.overflow = "hidden"; // Prevent background scrolling
-        }
-
-        function closeProductModal(productId) {
-            document.getElementById(`${productId}-modal`).style.display = "none";
-            document.body.style.overflow = "auto"; // Re-enable scrolling
-        }
-
-        // Close modals when clicking outside
-        window.onclick = function(event) {
-            // Product modals
-            const productModals = document.querySelectorAll('.product-modal');
-            productModals.forEach(modal => {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                    document.body.style.overflow = "auto";
-                }
-            });
-        }
-
-// Form submission handling
+    // Alternative: If you prefer traditional redirect instead of AJAX, use this version:
+    /*
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         // Tregojmë një mesazh loading
         const submitBtn = this.querySelector('button[type="submit"]');
@@ -1624,7 +1699,7 @@
         submitBtn.innerText = 'Duke dërguar...';
         submitBtn.disabled = true;
         
-        // Forma do të dërgohet normalisht dhe Formspree do të redirectojë
+        // Forma do të dërgohet normalisht dhe Web3Forms do të redirectojë
         // Nuk e ndalojmë submit-in me e.preventDefault()
         
         // Nëse doni të ktheni butonin pas 5 sekondash në rast se diçka shkon gabim
@@ -1633,6 +1708,7 @@
             submitBtn.disabled = false;
         }, 5000);
     });
+    */
 
     // Initialize page with Albanian as default
     document.addEventListener('DOMContentLoaded', function() {
@@ -1651,9 +1727,11 @@
 
         serviceItems.forEach(item => observer.observe(item));
     });
+</script>
     </script>
 </body>
 </html>
+
 
 
 
