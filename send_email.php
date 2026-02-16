@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = isset($_POST['message']) ? strip_tags(trim($_POST['message'])) : '';
     
     // Adresa ku dërgohet email-i
-    $to = "eriskastrati344@gmail.com";
+    $to = "vishajandrit@gmail.com";
     
     // Subjekti i email-it
     $subject = "Mesazh i ri nga AGI Plast - $name";
