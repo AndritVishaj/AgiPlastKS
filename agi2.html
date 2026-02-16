@@ -1133,57 +1133,65 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section" id="contact-section">
-        <div class="section-header">
-            <h2 id="contact-title">Na Kontaktoni</h2>
-            <p id="contact-description">Lidhuni me ne për një konsultim falas dhe kuotë</p>
-        </div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <h4>Telefoni</h4>
-                        <a href="https://wa.me/38344282786" target="_blank" class="phone-number">+383 44 282 768</a>
-                        <a href="https://wa.me/38348282786" target="_blank" class="phone-number">+383 48 282 768</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <p>info@agiplast-ks.com</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <h4>Orari i Punës</h4>
-                        <p>E Hënë - E Premte: 8:00 - 17:00</p>
-                        <p>E Shtunë: 8:00 - 17:00</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Adresa</h4>
-                        <p>Dresnik, Klinë</p>
-                    </div>
+   <!-- Contact Section -->
+<section class="contact-section" id="contact-section">
+    <div class="section-header">
+        <h2 id="contact-title">Na Kontaktoni</h2>
+        <p id="contact-description">Lidhuni me ne për një konsultim falas dhe kuotë</p>
+    </div>
+    <div class="contact-container">
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <h4>Telefoni</h4>
+                    <a href="https://wa.me/38344282786" target="_blank" class="phone-number">+383 44 282 768</a>
+                    <a href="https://wa.me/38348282786" target="_blank" class="phone-number">+383 48 282 768</a>
                 </div>
             </div>
-            <div class="contact-form">
-                <h3>Dërgo mesazh</h3>
-                <form id="contactForm">
-                    <input type="text" id="fullName" placeholder="Emri i plotë" required>
-                    <input type="email" id="email" placeholder="Email adresa" required>
-                    <input type="tel" id="phone" placeholder="Telefoni">
-                    <textarea id="message" placeholder="Mesazhi juaj" rows="5" required></textarea>
-                    <button type="submit">Dërgo Mesazhin</button>
-                </form>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h4>Email</h4>
+                    <p>info@agiplast-ks.com</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <h4>Orari i Punës</h4>
+                    <p>E Hënë - E Premte: 8:00 - 17:00</p>
+                    <p>E Shtunë: 8:00 - 17:00</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h4>Adresa</h4>
+                    <p>Dresnik, Klinë</p>
+                </div>
             </div>
         </div>
-    </section>
-
+        <div class="contact-form">
+            <h3>Dërgo mesazh</h3>
+            <form id="contactForm" action="https://formsubmit.co/eriskastrati344@gmail.com" method="POST">
+                <!-- Hidden fields for FormSubmit configuration -->
+                <input type="hidden" name="_subject" value="Mesazh i ri nga faqja AGI Plast!">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://agiplast-ks.com/faleminderit.html">
+                <input type="hidden" name="_autoresponse" value="Faleminderit për mesazhin tuaj. Ekipi i AGI Plast do t'ju kontaktojë së shpejti!">
+                
+                <!-- Form fields - me name attribute që kërkohet -->
+                <input type="text" name="Emri i plote" placeholder="Emri i plotë" required>
+                <input type="email" name="Email" placeholder="Email adresa" required>
+                <input type="tel" name="Telefoni" placeholder="Telefoni">
+                <textarea name="Mesazhi" placeholder="Mesazhi juaj" rows="5" required></textarea>
+                <button type="submit">Dërgo Mesazhin</button>
+            </form>
+        </div>
+    </div>
+</section>
     <!-- Location Section -->
     <section class="location-section">
         <div class="section-header">
@@ -1647,9 +1655,34 @@
 
             serviceItems.forEach(item => observer.observe(item));
         });
+        // Form submission handling - Hiq këtë pjesë të vjetër:
+/*
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Faleminderit për mesazhin! Do t\'ju kontaktojmë së shpejti.');
+    this.reset();
+});
+*/
+
+// Dhe shto këtë kod të ri (opsional - për të treguar një mesazh para se të dërgohet):
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    // Nuk e ndalojmë submit-in, por tregojmë një mesazh loading
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerText;
+    submitBtn.innerText = 'Duke dërguar...';
+    submitBtn.disabled = true;
+    
+    // Lejojmë form-in të dërgohet normalisht
+    // FormSubmit do të redirectojë në faqen e faleminderit
+    setTimeout(function() {
+        submitBtn.innerText = originalText;
+        submitBtn.disabled = false;
+    }, 3000);
+});
     </script>
 </body>
 </html>
+
 
 
 
