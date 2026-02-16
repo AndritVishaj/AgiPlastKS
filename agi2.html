@@ -443,99 +443,288 @@
             font-size: 0.9rem;
         }
 
-        /* Contact Section */
+        /* Contact Section - New Design */
         .contact-section {
             padding: 80px 20px;
-            background-color: #fff;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
 
-        .contact-container {
+        /* Contact Info Cards */
+        .contact-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto 50px;
         }
 
-        .contact-item {
+        .contact-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #f1c40f, #f39c12);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
+            border-radius: 50%;
             display: flex;
-            align-items: flex-start;
-            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
         }
 
-        .contact-item i {
-            font-size: 1.3rem;
-            color: #f1c40f;
-            margin-top: 5px;
+        .card-icon i {
+            font-size: 30px;
+            color: white;
         }
 
-        .contact-item h4 {
-            margin-bottom: 10px;
+        .contact-card h4 {
+            font-size: 1.2rem;
             color: #333;
-            font-size: 1.1rem;
+            margin-bottom: 15px;
         }
 
-        .contact-item p, .contact-item a {
+        .contact-card a, .contact-card p {
             color: #666;
             text-decoration: none;
-            font-size: 0.95rem;
-        }
-
-        .phone-number {
             display: block;
             margin-bottom: 5px;
             transition: color 0.3s;
         }
 
-        .phone-number:hover {
+        .contact-card a:hover {
             color: #f1c40f;
         }
 
-        .contact-form {
-            background: #f9f9f9;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        .map-link {
+            color: #f1c40f !important;
+            font-weight: 500;
+            margin-top: 10px;
         }
 
-        .contact-form h3 {
-            margin-bottom: 20px;
+        /* Contact Wrapper */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .form-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-header h3 {
+            font-size: 1.8rem;
             color: #333;
-            font-size: 1.3rem;
+            margin-bottom: 10px;
         }
 
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
+        .form-header p {
+            color: #666;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
             font-size: 0.95rem;
         }
 
-        .contact-form button {
-            background: #f1c40f;
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #f1c40f;
+            box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.1);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
             color: #333;
             border: none;
-            padding: 12px 25px;
+            padding: 15px 30px;
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s;
             width: 100%;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .contact-form button:hover {
-            background: #f39c12;
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(241, 196, 15, 0.3);
+        }
+
+        .submit-btn i {
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        /* Quick Contact */
+        .quick-contact {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .quick-contact h4 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .quick-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+
+        .quick-contact-item:hover {
+            transform: translateX(5px);
+        }
+
+        .quick-contact-item i {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .quick-contact-item div {
+            flex: 1;
+        }
+
+        .quick-contact-item span {
+            display: block;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .quick-contact-item a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .quick-contact-item a:hover {
+            color: #f1c40f;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .social-links h5 {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .social-links .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links .social-icons a {
+            width: 45px;
+            height: 45px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links .social-icons a:hover {
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
+            color: white;
+            transform: translateY(-3px);
         }
 
         /* Location Section */
@@ -658,21 +847,6 @@
             color: #f1c40f;
         }
 
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-icons a {
-            color: #fff;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: #f1c40f;
-        }
-
         .footer-bottom {
             text-align: center;
             padding: 20px;
@@ -702,6 +876,10 @@
             
             .hero-content h2 {
                 font-size: 1.1rem;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -751,6 +929,11 @@
             .hero-section {
                 height: 80vh;
             }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
         }
 
         @media (max-width: 576px) {
@@ -761,10 +944,6 @@
             .button {
                 width: 100%;
                 justify-content: center;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
             }
             
             .nav-container {
@@ -795,6 +974,14 @@
             .footer-section h4::after {
                 left: 50%;
                 transform: translateX(-50%);
+            }
+
+            .contact-form-container {
+                padding: 25px;
+            }
+
+            .quick-contact {
+                padding: 25px;
             }
         }
 
@@ -1132,69 +1319,143 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-   <!-- Contact Section -->
-<!-- Contact Section -->
-<!-- Contact Section -->
-<!-- Contact Section -->
-<section class="contact-section" id="contact-section">
-    <div class="section-header">
-        <h2 id="contact-title">Na Kontaktoni</h2>
-        <p id="contact-description">Lidhuni me ne për një konsultim falas dhe kuotë</p>
-    </div>
-    <div class="contact-container">
-        <div class="contact-info">
-            <div class="contact-item">
-                <i class="fas fa-phone-alt"></i>
-                <div>
-                    <h4>Telefoni</h4>
-                    <a href="https://wa.me/38344282786" target="_blank" class="phone-number">+383 44 282 768</a>
-                    <a href="https://wa.me/38348282786" target="_blank" class="phone-number">+383 48 282 768</a>
-                </div>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <div>
-                    <h4>Email</h4>
-                    <p>info@agiplast-ks.com</p>
-                </div>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-clock"></i>
-                <div>
-                    <h4>Orari i Punës</h4>
-                    <p>E Hënë - E Premte: 8:00 - 17:00</p>
-                    <p>E Shtunë: 8:00 - 17:00</p>
-                </div>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                    <h4>Adresa</h4>
-                    <p>Dresnik, Klinë</p>
-                </div>
-            </div>
+    <!-- Contact Section - New Design -->
+    <section class="contact-section" id="contact-section">
+        <div class="section-header">
+            <h2 id="contact-title">Na Kontaktoni</h2>
+            <p id="contact-description">Lidhuni me ne për një konsultim falas dhe kuotë</p>
         </div>
-        <div class="contact-form">
-            <h3>Dërgo mesazh</h3>
-            <form id="contactForm" action="send_email.php" method="POST">
-                <!-- Form fields -->
-                <input type="text" name="name" placeholder="Emri i plotë" required>
-                <input type="email" name="email" placeholder="Email adresa" required>
-                <input type="tel" name="phone" placeholder="Telefoni">
-                <textarea name="message" placeholder="Mesazhi juaj" rows="5" required></textarea>
-                
-                <!-- Honeypot për spam protection -->
-                <input type="text" name="honeypot" style="display: none;">
-                
-                <button type="submit">Dërgo Mesazhin</button>
-            </form>
+        
+        <!-- Contact Info Cards -->
+        <div class="contact-cards">
+            <div class="contact-card">
+                <div class="card-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <h4>Telefoni</h4>
+                <a href="https://wa.me/38344282786" target="_blank">+383 44 282 768</a>
+                <a href="https://wa.me/38348282786" target="_blank">+383 48 282 768</a>
+            </div>
             
-            <!-- Status message -->
-            <div id="form-status" style="margin-top: 15px; text-align: center;"></div>
+            <div class="contact-card">
+                <div class="card-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h4>Email</h4>
+                <a href="mailto:info@agiplast-ks.com">info@agiplast-ks.com</a>
+            </div>
+            
+            <div class="contact-card">
+                <div class="card-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h4>Orari i Punës</h4>
+                <p>Hënë - Premte: 8:00 - 17:00</p>
+                <p>Shtunë: 8:00 - 17:00</p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="card-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h4>Adresa</h4>
+                <p>Dresnik, Klinë</p>
+                <a href="https://goo.gl/maps/example" target="_blank" class="map-link">Shiko në hartë</a>
+            </div>
         </div>
-    </div>
-</section>
+
+        <!-- Contact Form Area -->
+        <div class="contact-wrapper">
+            <div class="contact-form-container">
+                <div class="form-header">
+                    <h3>Dërgo mesazh</h3>
+                    <p>Plotësoni formularin dhe do t'ju përgjigjemi sa më shpejt</p>
+                </div>
+                
+                <form id="contactForm" action="https://submit.jotform.com/submit/260464934704864/" method="post" target="_blank">
+                    <!-- JotForm Specific Fields -->
+                    <input type="hidden" name="formID" value="260464934704864" />
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first_3">Emri</label>
+                            <input type="text" id="first_3" name="q3_name[first]" placeholder="Shkruani emrin tuaj" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_3">Mbiemri</label>
+                            <input type="text" id="last_3" name="q3_name[last]" placeholder="Shkruani mbiemrin tuaj" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="input_4">Email</label>
+                            <input type="email" id="input_4" name="q4_email" placeholder="email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_5_full">Telefoni</label>
+                            <input type="tel" id="input_5_full" name="q5_phoneNumber[full]" placeholder="+383 XX XXX XXX">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="input_6">Informacioni që kërkoni</label>
+                        <input type="text" id="input_6" name="q6_requestingInformation" placeholder="P.sh. Çmime, Instalim, Konsulencë...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="input_7">Mesazhi juaj</label>
+                        <textarea id="input_7" name="q7_additionalInstructions" placeholder="Shkruani mesazhin ose kërkesën tuaj këtu..." rows="5"></textarea>
+                    </div>
+                    
+                    <!-- JotForm Spam Protection -->
+                    <input type="text" name="website" value="" style="display:none;" tabindex="-1" autocomplete="off">
+                    
+                    <button type="submit" class="submit-btn">
+                        <span>Dërgo Mesazhin</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    
+                    <p class="form-note">Forma juaj do të hapet në një skedë të re për konfirmim</p>
+                </form>
+            </div>
+            
+            <!-- Quick Contact Info -->
+            <div class="quick-contact">
+                <h4>Na kontaktoni direkt</h4>
+                <div class="quick-contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <span>WhatsApp</span>
+                        <a href="https://wa.me/38344282786">+383 44 282 768</a>
+                    </div>
+                </div>
+                <div class="quick-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <span>Telefoni</span>
+                        <a href="tel:+38344282786">+383 44 282 768</a>
+                    </div>
+                </div>
+                <div class="quick-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <span>Email</span>
+                        <a href="mailto:info@agiplast-ks.com">info@agiplast-ks.com</a>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <h5>Na ndiqni:</h5>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/p/NTP-Agi-Plast-100054279530541/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/agi_plast" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/+38344282786" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Location Section -->
     <section class="location-section">
         <div class="section-header">
@@ -1403,7 +1664,6 @@
     </div>
 
     <script>
-        
     // Toggle mobile menu
     function toggleMenu() {
         const menu = document.querySelector('.menu');
@@ -1616,66 +1876,6 @@
         });
     }
 
-    // Form submission handling with AJAX
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const form = e.target;
-        const formData = new FormData(form);
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerText;
-        const statusDiv = document.getElementById('form-status');
-        
-        // Disable button and show loading
-        submitBtn.innerText = 'Duke dërguar...';
-        submitBtn.disabled = true;
-        
-        if (statusDiv) {
-            statusDiv.innerHTML = '';
-        }
-        
-        try {
-            const response = await fetch('send_email.php', {
-                method: 'POST',
-                body: formData
-            });
-            
-            const text = await response.text();
-            
-            if (response.ok) {
-                // Check if redirected to faleminderit.html
-                if (response.url.includes('faleminderit.html')) {
-                    window.location.href = 'faleminderit.html';
-                } else {
-                    // Success but no redirect
-                    if (statusDiv) {
-                        statusDiv.innerHTML = '<div style="color: #4CAF50; padding: 10px; background: #e8f5e8; border-radius: 5px;">✓ Mesazhi u dërgua me sukses! Do të kontaktojmë së shpejti.</div>';
-                    } else {
-                        alert('Faleminderit! Mesazhi u dërgua me sukses.');
-                    }
-                    form.reset();
-                }
-            } else {
-                // Error
-                if (statusDiv) {
-                    statusDiv.innerHTML = '<div style="color: #f44336; padding: 10px; background: #ffebee; border-radius: 5px;">✗ Ndodhi një gabim. Ju lutemi provoni përsëri.</div>';
-                } else {
-                    alert('Ndodhi një gabim. Ju lutemi provoni përsëri.');
-                }
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            if (statusDiv) {
-                statusDiv.innerHTML = '<div style="color: #f44336; padding: 10px; background: #ffebee; border-radius: 5px;">✗ Ndodhi një gabim. Kontrolloni lidhjen e internetit.</div>';
-            } else {
-                alert('Ndodhi një gabim. Ju lutemi provoni përsëri.');
-            }
-        } finally {
-            submitBtn.innerText = originalText;
-            submitBtn.disabled = false;
-        }
-    });
-
     // Initialize page with Albanian as default
     document.addEventListener('DOMContentLoaded', function() {
         changeLanguage('sq');
@@ -1695,13 +1895,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
